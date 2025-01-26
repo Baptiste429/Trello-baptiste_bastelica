@@ -1,0 +1,98 @@
+ /* Style général */
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+
+  /* Logo Trello */
+  header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #e0e0e0;
+  }
+
+  .logo {
+    height: 40px;
+  }
+
+  /* Conteneur des colonnes */
+  .conteneur-cartes {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 20px;
+    gap: 20px;
+  }
+
+  /* Style des colonnes */
+  .colonne {
+    background-color: #ffffff;
+    width: 250px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+
+  .colonne h3 {
+    margin-bottom: 10px;
+    color: #0079bf;
+  }
+
+  .carte {
+    background-color: #e0e0e0;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .carte p {
+    margin: 5px 0;
+  }
+
+  .bouton-ajout {
+    margin-top: 10px;
+    background-color: #0079bf;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+  }
+
+  .bouton-ajout:hover {
+    background-color: #005f8c;
+  }
+
+  /* Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contenu-modal {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+  }
+
+  .contenu-modal input, .contenu-modal textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
