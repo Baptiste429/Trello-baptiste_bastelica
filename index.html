@@ -96,12 +96,12 @@
   <header class="sticky top-0 z-40 bg-brand-yellow/95 backdrop-blur-md border-b-2 border-brand-red/20">
     <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
       
-      <!-- GAUCHE : Logo PNG direct -->
+      <!-- GAUCHE : Logo PNG direct (corrigé sans ../) -->
       <a href="#hero" class="flex items-center gap-2 group">
         <div class="flex flex-col">
           <div class="h-10 sm:h-12 flex items-center">
             <img 
-              src="../Images/BAKELOGO.PNG" 
+              src="Images/BAKELOGO.PNG" 
               alt="Bakeology Treats" 
               class="h-10 sm:h-12 w-auto object-contain group-hover:scale-105 transition-transform"
             >
@@ -172,7 +172,7 @@
         <div class="hero-slide inactive absolute inset-0 bg-center bg-cover" style="background-image: url('Images/Bakepic2.jpg');"></div>
         <!-- Slide 3 -->
         <div class="hero-slide inactive absolute inset-0 bg-center bg-cover" style="background-image: url('Images/bakepic3.webp');"></div>
-                <!-- Slide 4 -->
+        <!-- Slide 4 -->
         <div class="hero-slide inactive absolute inset-0 bg-center bg-cover" style="background-image: url('Images/bakepic4.jpg');"></div>
         
         <!-- Voile assombrissant élégant sur les images pour conserver un texte ultra lisible -->
@@ -321,8 +321,7 @@
             <ul class="space-y-2.5 text-xs sm:text-sm text-brand-darkred divide-y divide-brand-yellow/50">
               <li class="flex justify-between items-center pt-2">
                 <span class="font-semibold">Monday – Friday</span>
-                <span class="font-bold text-brand-red border border-[rgb(121,51,45)] px-2 py-0.5 rounded
-">8:00 AM – 4:00 PM</span>
+                <span class="font-bold text-brand-red border border-[rgb(121,51,45)] px-2 py-0.5 rounded">8:00 AM – 4:00 PM</span>
               </li>
               <li class="flex justify-between items-center pt-2">
                 <span class="font-semibold">Saturday</span>
@@ -407,7 +406,6 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Menu burger mobile
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
 
