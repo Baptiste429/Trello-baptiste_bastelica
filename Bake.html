@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bakeology Treats | Authentic Argentine Bakery & Coffee • Dublin</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              yellow: '#dfc157',      // Façade jaune emblématique
+              lightyellow: '#f4ebbe', // Crème doux
+              darkyellow: '#bca64e',  // Accent jaune doré
+              red: '#79332d',         // Rouge bordeaux logo
+              darkred: '#5e2520',     // Brun profond logo
+              caramel: '#a15f32',     // Dulce de leche
+              cream: '#fffdf5',       // Blanc craie chaud
+              charcoal: '#24201d'     // Ardoise tableau noir
+            }
+          },
+          fontFamily: {
+            brand: ['"Fredoka"', 'sans-serif'],
+            hand: ['"Caveat"', 'cursive'],
+            sans: ['"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif']
+          },
+          boxShadow: {
+            'retro': '4px 4px 0px 0px #79332d',
+            'retro-sm': '2px 2px 0px 0px #79332d',
+            'retro-caramel': '3px 3px 0px 0px #a15f32'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #dfc157;
+      color: #24201d;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .filter-btn.active {
+      background-color: #79332d !important;
+      color: #fffdf5 !important;
+      border-color: #79332d !important;
+      box-shadow: 2px 2px 0px #a15f32;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Diapositives du carrousel automatique */
+    .hero-slide {
+      transition: opacity 1200ms ease-in-out, transform 7000ms ease-out;
+    }
+    .hero-slide.active {
+      opacity: 1;
+      transform: scale(1.04);
+    }
+    .hero-slide.inactive {
+      opacity: 0;
+      transform: scale(1.0);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-brand-red selection:text-white pb-10">
+
+  <!-- TOP BARRE D'ANNONCE -->
+  <aside aria-label="Location notice" class="bg-brand-red text-brand-cream text-xs sm:text-sm font-medium py-2 px-4 text-center border-b-2 border-brand-darkred">
+    <div class="max-w-5xl mx-auto flex items-center justify-center gap-2">
+      <span class="inline-block px-2 py-0.5 bg-brand-yellow text-brand-red font-bold rounded-full text-[10px] uppercase tracking-wider">The Liberties</span>
+      <span>Fresh Argentine Alfajores, Medialunas & Empanadas baked daily on Meath St!</span>
+    </div>
+  </aside>
+
+  <!-- NAVBAR MOBILE-FIRST -->
+  <header class="sticky top-0 z-40 bg-brand-yellow/95 backdrop-blur-md border-b-2 border-brand-red/20">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+      
+      <!-- GAUCHE : Logo PNG direct -->
+      <a href="#hero" class="flex items-center gap-2 group">
+        <div class="flex flex-col">
+          <div class="h-10 sm:h-12 flex items-center">
+            <img 
+              src="Images/BAKELOGO.PNG" 
+              alt="Bakeology Treats" 
+              class="h-10 sm:h-12 w-auto object-contain group-hover:scale-105 transition-transform"
+            >
+          </div>
+          <span class="text-[8px] sm:text-[11px] font-bold tracking-widest uppercase text-brand-caramel mt-0.5">
+            Argentine Bakery & Coffee
+          </span>
+        </div>
+      </a>
+
+      <!-- CENTRE : Liens Navigation Desktop -->
+      <nav class="hidden md:flex items-center gap-6 font-semibold text-brand-darkred text-sm">
+        <a href="#menu" class="hover:text-brand-caramel transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-utensils text-xs"></i> Menu
+        </a>
+        <a href="#about" class="hover:text-brand-caramel transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-heart text-xs"></i> Our Story
+        </a>
+        <a href="#hours-location" class="hover:text-brand-caramel transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-clock text-xs"></i> Hours & Map
+        </a>
+        <a href="https://www.instagram.com/bakeology.treats/" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-cream border-2 border-brand-red text-brand-red shadow-retro-sm hover:translate-x-0.5 hover:translate-y-0.5 transition-transform text-xs font-bold">
+          <i class="fa-brands fa-instagram text-sm"></i> @bakeology.treats
+        </a>
+      </nav>
+
+      <!-- DROITE : Bouton Maps + Menu Burger à droite pour mobile -->
+      <div class="flex items-center gap-2 md:hidden">
+        <a href="https://www.google.com/maps/place/Bakeology+Treats+(Argentinian+Bakery)/@53.3401428,-6.2782332,17z" 
+           target="_blank" rel="noopener noreferrer"
+           class="bg-brand-red text-brand-cream px-3 py-1.5 rounded-xl text-xs font-bold shadow-retro-sm active:translate-x-0.5 active:translate-y-0.5 flex items-center gap-1.5">
+          <i class="fa-solid fa-location-dot"></i> Maps
+        </a>
+
+        <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" class="flex items-center justify-center w-9 h-9 bg-brand-cream border-2 border-brand-red text-brand-red rounded-xl shadow-retro-sm active:translate-x-0.5 active:translate-y-0.5 transition-all">
+          <i class="fa-solid fa-bars text-sm"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Tiroir de navigation mobile -->
+    <div id="mobile-menu-drawer" class="hidden md:hidden px-4 pb-4 pt-2 border-t border-brand-red/20 bg-brand-yellow space-y-2 text-sm font-bold text-brand-darkred">
+      <a href="#menu" onclick="toggleMobileMenu()" class="block py-2 px-3 bg-brand-cream/80 rounded-xl border border-brand-red/20 flex items-center gap-2">
+        <i class="fa-solid fa-utensils text-brand-red"></i> Browse Menu
+      </a>
+      <a href="#about" onclick="toggleMobileMenu()" class="block py-2 px-3 bg-brand-cream/80 rounded-xl border border-brand-red/20 flex items-center gap-2">
+        <i class="fa-solid fa-heart text-brand-red"></i> Our Story
+      </a>
+      <a href="#hours-location" onclick="toggleMobileMenu()" class="block py-2 px-3 bg-brand-cream/80 rounded-xl border border-brand-red/20 flex items-center gap-2">
+        <i class="fa-solid fa-clock text-brand-red"></i> Hours & Location
+      </a>
+      <a href="https://www.instagram.com/bakeology.treats/" target="_blank" rel="noopener noreferrer" class="block py-2 px-3 bg-brand-cream/80 rounded-xl border border-brand-red/20 flex items-center gap-2">
+        <i class="fa-brands fa-instagram text-brand-red"></i> Instagram (@bakeology.treats)
+      </a>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <!-- SECTION HERO AVEC CARROUSEL D'IMAGES EN ARRIÈRE-PLAN (SANS SCROLL, DÉFILEMENT PUR) -->
+    <section id="hero" class="relative py-16 sm:py-24 px-4 overflow-hidden border-b-4 border-brand-red/40 flex items-center justify-center min-h-[420px] sm:min-h-[480px]">
+      
+      <!-- Conteneur des images de fond du carrousel -->
+      <div id="hero-carousel" class="absolute inset-0 pointer-events-none select-none z-0">
+        <!-- Slide 1 (active au démarrage) -->
+        <div class="hero-slide active absolute inset-0 bg-center bg-cover" style="background-image: url('Images/Bakepics.jpg');"></div>
+        <!-- Slide 2 -->
+        <div class="hero-slide inactive absolute inset-0 bg-center bg-cover" style="background-image: url('Images/Bakepic2.jpg');"></div>
+        <!-- Slide 3 -->
+        <div class="hero-slide inactive absolute inset-0 bg-center bg-cover" style="background-image: url('Images/bakepic3.webp');"></div>
+                <!-- Slide 4 -->
+        <div class="hero-slide inactive absolute inset-0 bg-center bg-cover" style="background-image: url('Images/bakepic4.jpg');"></div>
+        
+        <!-- Voile assombrissant élégant sur les images pour conserver un texte ultra lisible -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/75"></div>
+      </div>
+
+      <!-- Contenu textuel au premier plan -->
+      <div class="max-w-3xl mx-auto text-center relative z-10 text-white pointer-events-auto">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-semibold tracking-wide text-white mb-6 shadow-lg">
+          <span>43 Meath St, The Liberties, Dublin 8</span>[cite: 3]
+        </div>
+
+        <h1 class="font-sans font-bold text-3xl sm:text-5xl md:text-6xl text-white tracking-tight leading-[1.15] mb-4 drop-shadow-md">
+          Fresh Argentine Bakery <br>
+          <span class="font-normal text-white/95 text-2xl sm:text-4xl md:text-5xl">& Specialty Coffee</span>
+        </h1>
+
+        <p class="font-sans font-normal text-white/90 text-sm sm:text-base md:text-lg max-w-xl mx-auto mb-6 leading-relaxed drop-shadow">
+          Golden Empanadas, artisan Alfajores loaded with Dulce de Leche, and specialty brews in the heart of Dublin 8.
+        </p>
+      </div>
+    </section>
+
+    <!-- MENU SECTION -->
+    <section id="menu" class="max-w-5xl mx-auto px-4 py-8">
+      
+      <div class="text-center mb-6">
+        <div class="inline-flex items-center gap-2 text-brand-red font-hand text-2xl font-bold">
+          <span>~ Fresh daily from our ovens ~</span>
+        </div>
+        <h2 class="font-brand font-bold text-3xl sm:text-4xl text-brand-red">Our Blackboard Menu</h2>
+        <p class="text-xs sm:text-sm text-brand-darkred/80 mt-1 max-w-md mx-auto">
+          Take a look at what we prepare fresh every day. All items are available for takeaway or indoor seating.
+        </p>
+      </div>
+
+      <!-- Recherche & Filtres -->
+      <div class="bg-brand-cream rounded-2xl border-2 border-brand-red/40 p-3 sm:p-4 mb-6 shadow-sm">
+        <div class="relative mb-3">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-caramel text-xs"></i>
+          <input type="text" id="menu-search" placeholder="Search empanada, alfajor, ciabatta, latte..." 
+                 class="w-full pl-9 pr-4 py-2 bg-white border border-brand-yellow rounded-xl text-xs sm:text-sm text-brand-charcoal placeholder-brand-caramel/60 focus:outline-none focus:ring-2 focus:ring-brand-red font-medium">
+        </div>
+
+        <div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar text-xs font-bold" id="category-chips">
+          <button onclick="filterCategory('all')" class="filter-btn active whitespace-nowrap px-3.5 py-2 rounded-xl border border-brand-red/40 bg-white text-brand-darkred transition-all" data-category="all">
+            ✨ All Items
+          </button>
+          <button onclick="filterCategory('empanadas')" class="filter-btn whitespace-nowrap px-3.5 py-2 rounded-xl border border-brand-red/40 bg-white text-brand-darkred transition-all" data-category="empanadas">
+            🥟 Empanadas (€3.30)[cite: 2]
+          </button>
+          <button onclick="filterCategory('sandwiches')" class="filter-btn whitespace-nowrap px-3.5 py-2 rounded-xl border border-brand-red/40 bg-white text-brand-darkred transition-all" data-category="sandwiches">
+            🥪 Sandwiches & Wraps
+          </button>
+          <button onclick="filterCategory('bakery')" class="filter-btn whitespace-nowrap px-3.5 py-2 rounded-xl border border-brand-red/40 bg-white text-brand-darkred transition-all" data-category="bakery">
+            🥐 Alfajores & Pastries
+          </button>
+          <button onclick="filterCategory('coffee')" class="filter-btn whitespace-nowrap px-3.5 py-2 rounded-xl border border-brand-red/40 bg-white text-brand-darkred transition-all" data-category="coffee">
+            ☕ Coffee & Teas
+          </button>
+        </div>
+      </div>
+
+      <!-- Grille des items -->
+      <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5"></div>
+
+      <!-- Guide Allergènes -->
+      <div class="mt-8 bg-brand-charcoal text-brand-cream rounded-2xl p-4 sm:p-5 border-2 border-brand-yellow shadow-retro-sm">
+        <div class="flex items-center gap-2 text-brand-yellow font-bold text-sm mb-1.5">
+          <i class="fa-solid fa-chalkboard-user"></i>
+          <span>Allergens Guide (from our shop board)[cite: 2]</span>
+        </div>
+        <p class="text-[11px] sm:text-xs text-brand-cream/80 leading-relaxed font-mono">
+          [W] Wheat • [E] Eggs • [P] Peanuts • [ML] Milk • [N] Nuts • [S] Sesame • [F] Fish • [M] Mustard • [SO] Soybeans • [CE] Celery • [LU] Lupin • [MO] Molluscs.[cite: 2]
+        </p>
+        <p class="text-[11px] text-brand-yellow/80 mt-1.5 italic">
+          Please notify our team of any severe allergies before ordering.
+        </p>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="max-w-4xl mx-auto px-4 py-8">
+      <div class="bg-brand-cream rounded-3xl border-2 border-brand-red p-6 sm:p-8 shadow-retro">
+        <div class="flex flex-col md:flex-row items-center gap-6">
+          <div class="w-full md:w-3/5 space-y-3 text-brand-darkred">
+            <span class="inline-block px-3 py-1 rounded-full bg-brand-yellow/60 text-brand-red font-bold text-xs uppercase tracking-wide">
+              Buenos Aires ➔ The Liberties
+            </span>
+            <h3 class="font-brand font-bold text-2xl sm:text-3xl text-brand-red">The Story Behind Bakeology</h3>
+            <p class="text-xs sm:text-sm leading-relaxed font-medium">
+              Nestled at <strong>43 Meath Street</strong> with its warm yellow facade[cite: 3], Bakeology Treats brings the authentic comfort of Argentine bakeries straight to <strong>The Liberties, Dublin</strong>.
+            </p>
+            <p class="text-xs sm:text-sm leading-relaxed">
+              Every morning our display fills up with handmade empanadas, warm medialunas, savoury ciabattas, and classic cornstarch alfajores with dulce de leche[cite: 2, 4].
+            </p>
+            <div class="pt-1">
+              <a href="https://www.instagram.com/bakeology.treats/" target="_blank" rel="noopener noreferrer" 
+                 class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-brand-red hover:text-brand-caramel transition-colors">
+                <i class="fa-brands fa-instagram text-base"></i>
+                <span>Follow our daily bakes @bakeology.treats</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="w-full md:w-2/5 bg-brand-charcoal rounded-2xl p-5 text-brand-cream border-2 border-brand-yellow text-center flex flex-col items-center justify-center">
+            <span class="text-brand-yellow font-hand text-2xl font-bold">"Hecho con Amor"</span>
+            <span class="font-brand text-lg text-white mt-1">Baked with Passion</span>
+            <div class="flex items-center justify-center gap-3 text-2xl text-brand-yellow my-2">
+              <i class="fa-solid fa-bread-slice"></i>
+              <i class="fa-solid fa-mug-hot"></i>
+              <i class="fa-solid fa-cookie"></i>
+            </div>
+            <p class="text-[11px] text-brand-cream/70">
+              Serving the Dublin 8 community with specialty coffee and Argentine treats daily.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOURS & LOCATION SECTION -->
+    <section id="hours-location" class="max-w-5xl mx-auto px-4 py-8 mb-6">
+      <div class="text-center mb-6">
+        <h2 class="font-brand font-bold text-3xl sm:text-4xl text-brand-red">Visit Us in Dublin</h2>
+        <p class="text-xs sm:text-sm text-brand-darkred/80 mt-1">Conveniently located on historic Meath Street</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        
+        <!-- Horaires -->
+        <div class="bg-brand-cream rounded-3xl border-2 border-brand-red p-5 sm:p-6 shadow-retro flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-2xl bg-brand-white flex items-center justify-center text-brand-red text-lg font-bold border border-brand-red/30">
+                <i class="fa-regular fa-clock"></i>
+              </div>
+              <div>
+                <h3 class="font-brand font-bold text-xl text-brand-red">Opening Hours</h3>
+                <span class="text-xs text-emerald-700 font-bold flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-600"></span> Open 7 Days a Week
+                </span>
+              </div>
+            </div>
+
+            <ul class="space-y-2.5 text-xs sm:text-sm text-brand-darkred divide-y divide-brand-yellow/50">
+              <li class="flex justify-between items-center pt-2">
+                <span class="font-semibold">Monday – Friday</span>
+                <span class="font-bold text-brand-red border border-[rgb(121,51,45)] px-2 py-0.5 rounded
+">8:00 AM – 4:00 PM</span>
+              </li>
+              <li class="flex justify-between items-center pt-2">
+                <span class="font-semibold">Saturday</span>
+                <span class="font-bold text-brand-red border border-[rgb(121,51,45)] px-2 py-0.5 rounded">9:00 AM – 5:00 PM</span>
+              </li>
+              <li class="flex justify-between items-center pt-2">
+                <span class="font-semibold">Sunday</span>
+                <span class="font-bold text-brand-red border border-[rgb(121,51,45)] px-2 py-0.5 rounded">10:00 AM – 4:00 PM</span>
+              </li>
+            </ul>
+          </div>
+
+          <p class="mt-4 pt-3 border-t border-brand-yellow text-[11px] text-brand-caramel italic">
+            *Fresh empanadas and warm pastries are served all day until sold out!
+          </p>
+        </div>
+
+        <!-- Adresse & Maps -->
+        <div class="bg-brand-cream rounded-3xl border-2 border-brand-red p-5 sm:p-6 shadow-retro flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-2xl bg-brand-white flex items-center justify-center text-brand-red text-lg font-bold border border-brand-red/30">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <h3 class="font-brand font-bold text-xl text-brand-red">Location</h3>
+                <span class="text-xs text-brand-caramel font-semibold">The Liberties • Dublin 8</span>
+              </div>
+            </div>
+
+            <p class="text-brand-darkred font-bold text-sm sm:text-base mb-1">Bakeology Treats (Argentinian Bakery)</p>
+            <p class="text-xs sm:text-sm text-brand-darkred/90 mb-3">
+              43 Meath Street, The Liberties, Dublin, D08 VF76[cite: 3]
+            </p>
+
+            <div class="bg-brand-yellow/30 p-2.5 rounded-xl border border-brand-yellow mb-4 text-[11px] text-brand-darkred flex items-center gap-2">
+              <i class="fa-solid fa-street-view text-brand-red"></i>
+              <span>Close to Thomas Street, Vicar Street & Guinness Storehouse.</span>
+            </div>
+          </div>
+
+          <div class="space-y-2 pt-2">
+            <a href="https://www.google.com/maps/place/Bakeology+Treats+(Argentinian+Bakery)/@53.3401428,-6.2782332,17z" target="_blank" rel="noopener noreferrer" 
+               class="w-full py-3 px-4 bg-brand-red text-brand-cream font-bold rounded-2xl shadow-retro-sm hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all flex items-center justify-center gap-2 text-xs sm:text-sm text-center">
+              <i class="fa-solid fa-diamond-turn-right"></i> Open Directly in Google Maps
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-charcoal text-brand-cream py-8 border-t-4 border-brand-red">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <div class="flex justify-center items-center mb-2">
+        <img 
+          src="Images/BAKELOGO.PNG" 
+          alt="Bakeology Treats" 
+          class="h-10 w-auto object-contain brightness-110 drop-shadow mx-auto"
+        >
+      </div>
+      <p class="text-xs text-brand-cream/70 mb-4">43 Meath St, The Liberties, Dublin 8 • Authentic Argentine Bakery[cite: 3]</p>
+      
+      <div class="flex items-center justify-center gap-4 text-brand-yellow text-lg mb-4">
+        <a href="https://www.instagram.com/bakeology.treats/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.google.com/maps/place/Bakeology+Treats+(Argentinian+Bakery)/@53.3401428,-6.2782332,17z" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="Google Maps">
+          <i class="fa-solid fa-map-location-dot"></i>
+        </a>
+      </div>
+
+      <p class="text-[10px] text-brand-cream/50">
+        © <span id="year"></span> Bakeology Treats. Showcase menu & visitors guide.
+      </p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Menu burger mobile
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+
+    function toggleMobileMenu() {
+      if (mobileMenuDrawer.classList.contains('hidden')) {
+        mobileMenuDrawer.classList.remove('hidden');
+      } else {
+        mobileMenuDrawer.classList.add('hidden');
+      }
+    }
+
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    }
+
+    // Carrousel dynamique passif en arrière-plan (sans scroll possible)
+    function initHeroCarousel() {
+      const slides = document.querySelectorAll('.hero-slide');
+      if (slides.length <= 1) return;
+
+      let currentSlide = 0;
+      setInterval(() => {
+        slides[currentSlide].classList.remove('active');
+        slides[currentSlide].classList.add('inactive');
+
+        currentSlide = (currentSlide + 1) % slides.length;
+
+        slides[currentSlide].classList.remove('inactive');
+        slides[currentSlide].classList.add('active');
+      }, 4500); // Défilement toutes les 4,5 secondes
+    }
+
+    const menuItems = [
+      // 1. EMPANADAS (€3.30)
+      {
+        id: 'emp-1',
+        name: 'Beef Empanada',
+        category: 'empanadas',
+        price: '€3.30',
+        badge: 'Traditional',
+        desc: 'Traditional Argentine spiced ground beef with onion, herbs and savory seasoning.',
+        allergens: 'W, E'
+      },
+      {
+        id: 'emp-2',
+        name: 'Ham and Cheese Empanada',
+        category: 'empanadas',
+        price: '€3.30',
+        badge: 'Classic',
+        desc: 'Melted cheese and cooked ham inside a golden baked pastry pocket.',
+        allergens: 'W, ML'
+      },
+      {
+        id: 'emp-3',
+        name: 'Smoked Bacon, Prunes & Cheese',
+        category: 'empanadas',
+        price: '€3.30',
+        badge: 'Signature',
+        desc: 'Sweet & savory fusion with smoky bacon, tender sweet prunes, and melted cheese.',
+        allergens: 'W, ML'
+      },
+      {
+        id: 'emp-4',
+        name: 'Cheese and Onions Empanada',
+        category: 'empanadas',
+        price: '€3.30',
+        badge: 'Vegetarian',
+        desc: 'Caramelized seasoned onions folded with a generous blend of melted cheese.',
+        allergens: 'W, ML'
+      },
+      {
+        id: 'emp-5',
+        name: 'Spinach, Onions & Bechamel',
+        category: 'empanadas',
+        price: '€3.30',
+        badge: 'Vegetarian',
+        desc: 'Tender baby spinach and sauteed onions in a silky creamy bechamel sauce.',
+        allergens: 'W, ML'
+      },
+      {
+        id: 'emp-6',
+        name: 'Corn, Onions & Bechamel',
+        category: 'empanadas',
+        price: '€3.30',
+        badge: 'Humita Style',
+        desc: 'Argentine classic sweetcorn and sauteed onion folded in rich white sauce.',
+        allergens: 'W, ML'
+      },
+
+      // 2. SANDWICHES & SAVOURIES
+      {
+        id: 'snd-1',
+        name: 'H&C Tostie',
+        category: 'sandwiches',
+        price: '€6.50',
+        badge: 'Toastie',
+        desc: 'Toasted bakery bread loaded with cooked ham and melted cheese.',
+        allergens: 'W, ML'
+      },
+      {
+        id: 'snd-2',
+        name: 'H&C Croissant',
+        category: 'sandwiches',
+        price: '€3.50',
+        badge: 'Morning Treat',
+        desc: 'Flaky baked butter croissant filled with sliced ham and toasted cheese.',
+        allergens: 'W, ML, E'
+      },
+      {
+        id: 'snd-3',
+        name: 'Parma Ciabatta',
+        category: 'sandwiches',
+        price: '€9.60',
+        badge: 'Artisan',
+        desc: 'Parma ham, melted cheese, fresh tomato, and garden greens in rustic ciabatta.',
+        allergens: 'W, ML'
+      },
+      {
+        id: 'snd-4',
+        name: 'Chicken Bun',
+        category: 'sandwiches',
+        price: '€9.80',
+        badge: 'Hearty',
+        desc: 'Cajun spiced chicken, cheese, dry tomatoes, and crisp greens.',
+        allergens: 'W, ML'
+      },
+      {
+        id: 'snd-5',
+        name: 'Caprese Ciabatta (v)',
+        category: 'sandwiches',
+        price: '€9.50',
+        badge: 'Vegetarian',
+        desc: 'Fresh tomato, mozzarella, basil and fragrant basil pesto.',
+        allergens: 'W, ML'
+      },
+      {
+        id: 'snd-6',
+        name: 'Portobello Mushroom Sandwich (v)',
+        category: 'sandwiches',
+        price: '€9.50',
+        badge: 'Vegetarian',
+        desc: 'Portobello mushroom, gouda cheese, onion chutney, sriracha chilli mayo and rocket.',
+        allergens: 'W, ML, E'
+      },
+      {
+        id: 'snd-7',
+        name: 'Pork Bun',
+        category: 'sandwiches',
+        price: '€9.00',
+        badge: 'Pulled Pork',
+        desc: 'Pulled pork, coleslaw, rocket, and creamy mayonnaise.',
+        allergens: 'W, E, ML'
+      },
+      {
+        id: 'snd-8',
+        name: 'Chicken and Leek Wrap',
+        category: 'sandwiches',
+        price: '€7.50',
+        badge: 'Lunch Wrap',
+        desc: 'Tender chicken and sweet sauteed leeks in a warm toasted tortilla wrap.',
+        allergens: 'W, ML, E'
+      },
+      {
+        id: 'snd-9',
+        name: 'Feta and Spinach Wrap',
+        category: 'sandwiches',
+        price: '€7.50',
+        badge: 'Vegetarian',
+        desc: 'Tangy feta, spinach, and seasoning rolled in a toasted wrap.',
+        allergens: 'W, ML, E'
+      },
+      {
+        id: 'snd-10',
+        name: 'Argentinian Sausage Roll',
+        category: 'sandwiches',
+        price: '€4.50',
+        badge: 'Savory Roll',
+        desc: 'Flaky baked pastry roll filled with seasoned Argentine sausage meat.',
+        allergens: 'W, E'
+      },
+
+      // 3. BAKERY & SWEET
+      {
+        id: 'bak-1',
+        name: 'Authentic Alfajores',
+        category: 'bakery',
+        price: '€3.50 – €4.50',
+        badge: 'Signature',
+        desc: 'Maicena (cornstarch) & chocolate cookies filled with rich dulce de leche and rolled in coconut.',
+        allergens: 'W, ML, E'
+      },
+      {
+        id: 'bak-2',
+        name: 'Facturas & Medialunas',
+        category: 'bakery',
+        price: '€2.20 – €3.00',
+        badge: 'Argentine Staple',
+        desc: 'Traditional Argentine sweet crescent pastries and custard pastries.',
+        allergens: 'W, ML, E'
+      },
+      {
+        id: 'bak-3',
+        name: 'Slice of Pastafrola / Pie',
+        category: 'bakery',
+        price: '€4.50 – €4.80',
+        badge: 'Homemade',
+        desc: 'Traditional quince (membrillo) tart, dulce de leche tart, or ricotta pie.',
+        allergens: 'W, ML, E'
+      },
+      {
+        id: 'bak-4',
+        name: 'Carrot Cake Slice',
+        category: 'bakery',
+        price: '€4.80',
+        badge: 'Cake Slice',
+        desc: 'Moist spiced carrot cake with rich cream cheese topping.',
+        allergens: 'W, ML, E, N'
+      },
+      {
+        id: 'bak-5',
+        name: 'Brownie Ingot / Brookie',
+        category: 'bakery',
+        price: '€4.50 – €5.00',
+        badge: 'Chocolate',
+        desc: 'Fudge chocolate brownie ingot, cheesecake brownie, or brookie with dulce de leche.',
+        allergens: 'W, ML, E'
+      },
+
+      // 4. COFFEE & DRINKS
+      {
+        id: 'drk-1',
+        name: 'Dulce de Leche Latte',
+        category: 'coffee',
+        price: '€4.50',
+        badge: 'Specialty',
+        desc: 'Espresso with steamed milk and a generous swirl of melted Argentine dulce de leche.',
+        allergens: 'ML'
+      },
+      {
+        id: 'drk-2',
+        name: 'Flat White / Cappuccino / Latte',
+        category: 'coffee',
+        price: '€3.80 – €4.20',
+        badge: 'Coffee Time',
+        desc: 'Expertly pulled espresso with silky microfoam milk.',
+        allergens: 'ML'
+      },
+      {
+        id: 'drk-3',
+        name: 'Espresso / Double Espresso',
+        category: 'coffee',
+        price: '€2.80 – €3.20',
+        badge: 'Classic',
+        desc: 'Rich, intense freshly brewed double shot.',
+        allergens: 'None'
+      },
+      {
+        id: 'drk-4',
+        name: 'Loose Leaf Teas & Infusions',
+        category: 'coffee',
+        price: '€3.00 – €3.50',
+        badge: 'Hot Teas',
+        desc: 'Irish Breakfast, Chamomile, Earl Grey, Green Tea, Pepper Mint, Rooibos.',
+        allergens: 'None'
+      }
+    ];
+
+    let currentCategory = 'all';
+    let searchQuery = '';
+
+    function renderMenu() {
+      const grid = document.getElementById('menu-grid');
+      
+      const filtered = menuItems.filter(item => {
+        const matchesCategory = (currentCategory === 'all' || item.category === currentCategory);
+        const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                              item.desc.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCategory && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-8 text-center bg-brand-cream/80 rounded-2xl border-2 border-dashed border-brand-red/30 p-4">
+            <h4 class="font-brand text-base text-brand-red font-bold">No items found</h4>
+            <p class="text-xs text-brand-darkred/70 mt-1">Try another search term or click All Items.</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(item => `
+        <div class="bg-brand-cream rounded-2xl border-2 border-brand-red/30 hover:border-brand-red p-3.5 shadow-sm transition-all duration-150 flex flex-col justify-between">
+          <div>
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <h3 class="font-brand font-bold text-base text-brand-red">
+                ${item.name}
+              </h3>
+              <span class="font-brand font-bold text-brand-darkred text-sm whitespace-nowrap bg-brand-yellow/40 px-2 py-0.5 rounded-lg border border-brand-yellow">
+                ${item.price}
+              </span>
+            </div>
+
+            <span class="inline-block px-1.5 py-0.5 rounded bg-brand-lightyellow text-brand-caramel font-bold text-[10px] mb-1.5 uppercase tracking-wide">
+              ${item.badge}
+            </span>
+
+            <p class="text-xs text-brand-darkred/90 leading-relaxed font-normal">
+              ${item.desc}
+            </p>
+          </div>
+
+          <div class="mt-2.5 pt-2 border-t border-brand-yellow/60 flex items-center justify-between text-[10px] text-brand-caramel">
+            <span><strong>Allergens:</strong> ${item.allergens}</span>
+            <span class="text-brand-red/60 font-hand text-xs font-bold">Bakeology Dublin</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterCategory(category) {
+      currentCategory = category;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        if (btn.getAttribute('data-category') === category) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      renderMenu();
+    }
+
+    document.getElementById('menu-search').addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim();
+      renderMenu();
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderMenu();
+      initHeroCarousel();
+    });
+  </script>
+</body>
+</html>
